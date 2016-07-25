@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.breaking.breaking">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".CustomApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            tools:replace="android:theme" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.LoginActionbar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:label="@string/title_activity_sign_up"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".PdvsActivity"
+            android:label="@string/title_activity_pdvs"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GuiaExecucaoActivity"
+            android:label="@string/title_activity_guia_execucao"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MensagensActivity"
+            android:label="@string/title_activity_mensagens"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RankingActivity"
+            android:label="@string/title_activity_ranking"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>
