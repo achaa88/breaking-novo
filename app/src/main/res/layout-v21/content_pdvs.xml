@@ -17,8 +17,8 @@
         android:layout_height="100dp"
         android:id="@+id/dpDataAtual"
         android:layout_alignParentTop="true"
-        style="@android:style/Widget.DeviceDefault.DatePicker"
-        android:layout_alignRight="@+id/imageView"
+        style="@android:style/Widget.Material.DatePicker"
+        android:layout_alignRight="@+id/listView"
         android:layout_alignEnd="@+id/imageView"
         android:spinnersShown="false"
         android:datePickerMode="calendar" />

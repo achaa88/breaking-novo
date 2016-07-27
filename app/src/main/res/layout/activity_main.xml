@@ -9,39 +9,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.breaking.breaking.MainActivity">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_titulo_main"
-        android:id="@+id/tituloRota"
+        android:layout_height="100dp"
+        android:id="@+id/imageView2"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:singleLine="false"
-        android:textSize="20sp" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_below="@+id/tituloRota"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/frameLayout">
-
-        <WebView
-            android:id="@+id/mapa"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp" />
-
-    </FrameLayout>
+        android:src="@drawable/icone"
+         />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/frameLayout"
         android:layout_centerHorizontal="true"
-        android:id="@+id/llayoutMenu">
+        android:id="@+id/llayoutMenu"
+        android:layout_below="@+id/imageView2">
 
         <Button
             android:layout_width="match_parent"
@@ -77,14 +59,22 @@
             android:onClick="onClickRanking" />
     </LinearLayout>
 
-    <GridView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gvRanking"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@+id/llayoutMenu"
-        android:layout_marginTop="10dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView"
+            android:layout_row="2"
+            android:layout_column="2" />
+    </GridLayout>
 
 </RelativeLayout>
 
