@@ -7,13 +7,13 @@ import java.util.Date;
  */
 public class SKU {
 
-    public int ean;
-    public String nome;
-    public int categoria;
-    public String quantidade;
-    public int tamanho; //tamanho na gondula
-    public double preco_medio;
-    public Date data_validade;
+    private int ean;
+    private String nome;
+    private int categoria;
+    private String quantidade;
+    private int tamanho; //tamanho na gondula
+    private double preco_medio;
+    private Date data_validade;
 
     public SKU(){}
 

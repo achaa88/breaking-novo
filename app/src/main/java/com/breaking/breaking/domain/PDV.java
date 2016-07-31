@@ -5,14 +5,14 @@ package com.breaking.breaking.domain;
  */
 public class PDV {
 
-    public String estado;
-    public int codigo_canal;
-    public String cidade;
-    public String bandeira;
-    public String enredeco;
-    public String bairro;
-    public int cnpj;
-    public int telefone;
+    private String estado;
+    private int codigo_canal;
+    private String cidade;
+    private String bandeira;
+    private String enredeco;
+    private String bairro;
+    private int cnpj;
+    private int telefone;
 
     public PDV(){}
 
