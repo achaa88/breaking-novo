@@ -35,19 +35,31 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:id="@+id/linearLayout"
+                    android:id="@+id/llContatos"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical">
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/lvContatos" />
+                </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout2"
+                    android:id="@+id/llCaixaEntrada"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical">
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/lvCaixaEntrada" />
+                </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout3"
+                    android:id="@+id/llCaixaSaida"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"></LinearLayout>

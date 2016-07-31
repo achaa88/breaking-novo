@@ -6,14 +6,13 @@ package com.breaking.breaking.domain;
 
 import android.content.Context;
 
+import com.breaking.breaking.domain.util.LibraryClass;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.breaking.breaking.domain.util.LibraryClass;
 
 
 public class User {
@@ -25,6 +24,14 @@ public class User {
     private String email;
     private String password;
     private String newPassword;
+    private int cpf;
+    private int matricula;
+    private int nivel; //nivel hierarquico
+    private String endereco;
+    private String cidade;
+    private String superior;
+
+
 
     public User(){}
 
