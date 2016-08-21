@@ -12,22 +12,10 @@
     tools:context="com.breaking.breaking.PdvsActivity"
     tools:showIn="@layout/activity_pdvs">
 
-    <DatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:id="@+id/dpDataAtual"
-        android:layout_alignParentTop="true"
-        style="@android:style/Widget.DeviceDefault.DatePicker"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView"
-        android:spinnersShown="false"
-        android:datePickerMode="calendar" />
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:id="@+id/imageView"
-        android:layout_below="@+id/dpDataAtual"
         android:layout_centerHorizontal="true"
         android:contentDescription="Rota pdvs" />
 

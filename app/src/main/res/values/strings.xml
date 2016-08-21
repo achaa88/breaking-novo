@@ -27,7 +27,7 @@
     <string name="title_activity_link_accounts">Link contas</string>
     <string name="title_activity_remove_user">RemoveUserActivity</string>
     <string name="password_info">Para prosseguir com a atualização informe abaixo sua senha.</string>
-    <string name="bt_pdvs">PDV'S</string>
+    <string name="bt_pdvs">PDVS</string>
     <string name="bt_guia_execucao">Guia de Execução</string>
     <string name="bt_mensagens">Mensagens</string>
     <string name="bt_ranking">Ranking</string>
