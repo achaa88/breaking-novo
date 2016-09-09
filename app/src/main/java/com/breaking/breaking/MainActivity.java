@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.breaking.breaking.domain.User;
 import com.breaking.breaking.domain.util.LibraryClass;
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     //private UserRecyclerAdapter adapter;
     private FirebaseAuth.AuthStateListener authStateListener;
+    Button btPdvs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,28 +39,29 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-
+        btPdvs = (Button) findViewById(R.id.btPdvs);
+        
         mAuth = FirebaseAuth.getInstance();
         mAuth.addAuthStateListener( authStateListener );
         databaseReference = LibraryClass.getFirebase();
     }
 
-    public void onClickPdvs(){
-        Intent intent = new Intent( MainActivity.this, PdvsActivity.class );
+    public void onClickPdvs(View view){
+        Intent intent = new Intent( MainActivity.this, ListaRotaActivity.class );
         startActivity( intent );
         finish();
     }
-    public void onClickGuiaExecucao(){
+    public void onClickGuiaExecucao(View view){
         Intent intent = new Intent( MainActivity.this, GuiaExecucaoActivity.class );
         startActivity( intent );
         finish();
     }
-    public void onClickMensagens(){
+    public void onClickMensagens(View view){
         Intent intent = new Intent( MainActivity.this, MensagensActivity.class );
         startActivity( intent );
         finish();
     }
-    public void onClickRanking(){
+    public void onClickRanking(View view){
         Intent intent = new Intent( MainActivity.this, RankingActivity.class );
         startActivity( intent );
         finish();

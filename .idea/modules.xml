@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Breaking novo.iml" filepath="$PROJECT_DIR$/Breaking novo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/breaking-novo.iml" filepath="$PROJECT_DIR$/breaking-novo.iml" />
     </modules>
   </component>
 </project>

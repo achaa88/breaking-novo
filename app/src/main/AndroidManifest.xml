@@ -34,20 +34,28 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".PdvsActivity"
-            android:label="@string/title_activity_pdvs"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".GuiaExecucaoActivity"
             android:label="@string/title_activity_guia_execucao"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MensagensActivity"
-            android:label="@string/title_activity_mensagens"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".RankingActivity"
             android:label="@string/title_activity_ranking"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ExecucaoPdvActivity"
+            android:label="@string/title_activity_execucao_pdv"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ListaRotaActivity"
+            android:label="@string/title_activity_lista_pdvs"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TabActivity"
+            android:label="@string/title_activity_tab"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MensagensActivity"
+            android:label="@string/title_activity_mensagens"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
