@@ -5,18 +5,12 @@
     tools:context=".Fragments.ListaPdvsDia">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Lista pdvs dia" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Execução Pdv"
-        android:id="@+id/button"
-        android:layout_gravity="center"
-        android:onClick="ExecucaoPdvs"
-        android:nestedScrollingEnabled="false" />
+        android:scrollbars="vertical"
+        android:id="@+id/rvListaPdvs"
+        android:layout_gravity="center" />
 
 </FrameLayout>

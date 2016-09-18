@@ -11,10 +11,23 @@ public class PDV {
     private String bandeira;
     private String enredeco;
     private String bairro;
+    private String nome;
     private int cnpj;
     private int telefone;
 
     public PDV(){}
+
+    public PDV(String nome, int codigo_canal, String bandeira, int cnpj, int telefone, String enredeco, String bairro, String cidade, String estado){
+        this.bairro = bairro;
+        this.bandeira = bandeira;
+        this.cidade = cidade;
+        this.cnpj = cnpj;
+        this.codigo_canal = codigo_canal;
+        this.enredeco = enredeco;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.estado = estado;
+    }
 
     public String getEstado() {
         return estado;
@@ -80,5 +93,11 @@ public class PDV {
         this.telefone = telefone;
     }
 
+    public String getNome() {
+        return nome;
+    }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }

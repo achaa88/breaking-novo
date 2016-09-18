@@ -3,6 +3,7 @@ package com.breaking.breaking.Fragments;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,8 +35,6 @@ public class Rota extends Fragment {
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
-     *
-     * @param pos Position of the tab.
      * @return A new instance of fragment Rota.
      */
     public static Rota newInstance() {
@@ -58,7 +57,15 @@ public class Rota extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rota, container, false);
+        View view = inflater.inflate(R.layout.fragment_rota, container, false);
+        //RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rvListaPdvs);
+        //DatabaseReference firebase = LibraryClass.getFirebase().child("users");
+        Log.d("create view","passou pela rota");
+        //PDVRecyclerAdapter adapter = new PDVRecyclerAdapter(PDV.class, android.R.layout.two_line_list_item,PDVViewHolder.class,firebase );
+        //UserRecyclerAdapter adapter = new UserRecyclerAdapter(User.class,android.R.layout.two_line_list_item, UserViewHolder.class,firebase);
+        //recyclerView.setAdapter(adapter);
+
+        return view;
     }
     /*
     // TODO: Rename method, update argument and hook method into UI event

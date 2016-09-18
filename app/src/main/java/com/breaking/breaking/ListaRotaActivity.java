@@ -1,6 +1,5 @@
 package com.breaking.breaking;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -26,7 +25,7 @@ public class ListaRotaActivity extends FragmentActivity implements ActionBar.Tab
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+    private ListaRotaPagerAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -41,7 +40,7 @@ public class ListaRotaActivity extends FragmentActivity implements ActionBar.Tab
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new ListaRotaPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -55,11 +54,6 @@ public class ListaRotaActivity extends FragmentActivity implements ActionBar.Tab
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_lista_pdvs, menu);
         return true;
-    }
-    public void ExecucaoPdvs(){
-        Intent intent = new Intent(ListaRotaActivity.this,ExecucaoPdvActivity.class);
-        startActivity( intent );
-        finish();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -96,9 +90,9 @@ public class ListaRotaActivity extends FragmentActivity implements ActionBar.Tab
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    public class ListaRotaPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        public ListaRotaPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
