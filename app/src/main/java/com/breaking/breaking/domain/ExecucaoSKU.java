@@ -1,59 +1,150 @@
 package com.breaking.breaking.domain;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by Vitor on 31/07/2016.
  */
 public class ExecucaoSKU {
 
-    private int dia_semana;
-    private String pdv;
-    private boolean preco;
-    private boolean presenca;
-    private boolean estoque;
+    private PDV pdv;
+    private User user;
+    private SKU sku;
+    private int idExecucaoSKU;
+    private boolean pegarPreco;
+    private double preco;
+    private boolean pegarpresenca;
+    private int presenca; //porcent
+    private boolean pegarestoque;
+    private int estoque; //porcent
+    private List<String> listaPerguntasLivres;
+    private Map<String,String> perguntasComRespostas;
+
 
     public ExecucaoSKU(){   }
-    public ExecucaoSKU(int dia_semana,String pdv){
-        this.dia_semana = dia_semana;
+
+    public ExecucaoSKU(PDV pdv,SKU sku){
         this.pdv = pdv;
+        this.sku = sku;
+    }
+    public String getPerguntaLivre(int posicao){
+        return listaPerguntasLivres.get(posicao);
+    }
+    public void setPerguntaLivre(String perguntaLivre){
+        this.listaPerguntasLivres.add(perguntaLivre);
     }
 
-    public int getDia_semana() {
-        return dia_semana;
+    public void removePerguntaLivre(int posicao){
+        removeResposta(posicao);
+        this.listaPerguntasLivres.remove(posicao);
     }
 
-    public void setDia_semana(int dia_semana) {
-        this.dia_semana = dia_semana;
+    public String getResposta(int posicao){
+        return perguntasComRespostas.get(listaPerguntasLivres.get(posicao));
     }
 
-    public String getPdv() {
+    public PDV getPdv() {
         return pdv;
     }
 
-    public void setPdv(String pdv) {
+    public void setPdv(PDV pdv) {
         this.pdv = pdv;
     }
 
-    public boolean getPresenca() {
-        return presenca;
+    public User getUser() {
+        return user;
     }
 
-    public void setPresenca(boolean presenca) {
-        this.presenca = presenca;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public boolean getEstoque() {
-        return estoque;
+    public SKU getSku() {
+        return sku;
     }
 
-    public void setEstoque(boolean estoque) {
-        this.estoque = estoque;
+    public void setSku(SKU sku) {
+        this.sku = sku;
     }
 
-    public boolean getPreco() {
+    public List<String> getListaPerguntasLivres() {
+        return listaPerguntasLivres;
+    }
+
+    public void setListaPerguntasLivres(List<String> listaPerguntasLivres) {
+        this.listaPerguntasLivres = listaPerguntasLivres;
+    }
+
+    public Map<String, String> getPerguntasComRespostas() {
+        return perguntasComRespostas;
+    }
+
+    public void setPerguntasComRespostas(Map<String, String> perguntasComRespostas) {
+        this.perguntasComRespostas = perguntasComRespostas;
+    }
+
+    public void setResposta(int posPerg, String resposta){
+        this.perguntasComRespostas.put(this.listaPerguntasLivres.get(posPerg),resposta);
+    }
+
+    public void removeResposta(int posPerg){
+        this.perguntasComRespostas.remove(this.listaPerguntasLivres.get(posPerg));
+    }
+
+    public boolean isPegarpresenca() {
+        return pegarpresenca;
+    }
+
+    public void setPegarpresenca(boolean pegarpresenca) {
+        this.pegarpresenca = pegarpresenca;
+    }
+
+    public boolean isPegarestoque() {
+        return pegarestoque;
+    }
+
+    public void setPegarestoque(boolean pegarestoque) {
+        this.pegarestoque = pegarestoque;
+    }
+
+    public boolean isPegarPreco() {
+        return pegarPreco;
+    }
+
+    public void setPegarPreco(boolean pegarPreco) {
+        this.pegarPreco = pegarPreco;
+    }
+
+    public int getIdExecucaoSKU() {
+        return idExecucaoSKU;
+    }
+
+    public void setIdExecucaoSKU(int idExecucaoSKU) {
+        this.idExecucaoSKU = idExecucaoSKU;
+    }
+
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(boolean preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
+    }
+
+    public int getPresenca() {
+        return presenca;
+    }
+
+    public void setPresenca(int presenca) {
+        this.presenca = presenca;
+    }
+
+    public int getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(int estoque) {
+        this.estoque = estoque;
     }
 }
