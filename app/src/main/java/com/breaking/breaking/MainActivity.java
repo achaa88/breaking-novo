@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.breaking.breaking.Temporary.PopularDBActivity;
 import com.breaking.breaking.domain.User;
 import com.breaking.breaking.domain.util.LibraryClass;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickPdvs(View view){
-        Intent intent = new Intent( MainActivity.this, ListaRotaActivity.class );
+        Intent intent = new Intent( MainActivity.this, SelecaoPDVActivity.class );
         startActivity( intent );
         finish();
     }
@@ -67,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    public void onClickPopularDB(View view){
+        Intent intent = new Intent( MainActivity.this, PopularDBActivity.class );
+        startActivity( intent );
+        finish();
+    }
 
     @Override
     protected void onResume() {

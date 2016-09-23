@@ -1,43 +1,41 @@
 {
   "project_info": {
-    "project_number": "307339663726",
-    "firebase_url": "https://breaking-fd1f7.firebaseio.com",
-    "project_id": "breaking-fd1f7",
-    "storage_bucket": "breaking-fd1f7.appspot.com"
+    "project_number": "555308539110",
+    "firebase_url": "https://nosso-chat-firebase.firebaseio.com",
+    "project_id": "project-837262152840344681",
+    "storage_bucket": "project-837262152840344681.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:307339663726:android:127e00d037522647",
+        "mobilesdk_app_id": "1:555308539110:android:127e00d037522647",
         "android_client_info": {
           "package_name": "com.breaking.breaking"
         }
       },
       "oauth_client": [
         {
-          "client_id": "307339663726-enu2lv050ahjiq4kslhj56jqpolg3m8n.apps.googleusercontent.com",
+          "client_id": "555308539110-vlocgbkhnr549iac7ru6chrav609519r.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDNLfHOwpInTwXDTRUwU488HHKJvaoa1JI"
+          "current_key": "AIzaSyBHl2FVN3NLUfd9XgKGu_CDmfKH-NLHLPQ"
         }
       ],
-
       "services": {
         "analytics_service": {
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [ ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
         }
       }
-
     }
   ],
   "configuration_version": "1"

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_popular_db"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.breaking.breaking.Temporary.PopularDBActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:text="Cadastrar PDV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/btCadastrarPDV"
+            android:onClick="onClickCadastrarPDV" />
+
+        <Button
+            android:text="Cadastrar SKU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/btCadastrarPDV"
+            android:id="@+id/btCadastrarSKU"
+            android:onClick="onClickCadastrarSKU" />
+
+        <Button
+            android:text="Cadastrar Ex SKU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btCadastrarSKU"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/btCadastrarExSKU" />
+
+        <Button
+            android:text="Cadastrar Ex PDV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btCadastrarExSKU"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/btCadastrarExPdv" />
+
+        <Button
+            android:text="Cadatrar Ex Diaria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btCadastrarExPdv"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/btCadastrarExDiaria" />
+
+    </LinearLayout>
+</RelativeLayout>

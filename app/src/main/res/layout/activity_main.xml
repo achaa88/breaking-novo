@@ -56,6 +56,13 @@
             android:id="@+id/btRanking"
             android:layout_gravity="center_horizontal"
             android:onClick="onClickRanking" />
+
+        <Button
+            android:text="PopularDB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btPopularDB"
+            android:onClick="onClickPopularDB" />
     </LinearLayout>
 
     <GridLayout
@@ -67,6 +74,18 @@
         android:id="@+id/glRankingOnline">
 
     </GridLayout>
+
+    <TextView
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="494dp"
+        android:layout_marginStart="494dp"
+        android:layout_marginTop="108dp"
+        android:id="@+id/textView" />
 
 </RelativeLayout>
 

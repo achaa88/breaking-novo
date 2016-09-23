@@ -1,12 +1,16 @@
 package com.breaking.breaking.domain;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 /**
  * Created by Vitor on 31/07/2016.
  */
 public class PDV {
 
     private String estado;
-    private int codigo_canal;
+    private int codigoCanal;
     private String cidade;
     private String bandeira;
     private String enredeco;
@@ -14,6 +18,7 @@ public class PDV {
     private String nome;
     private int cnpj;
     private int telefone;
+    private String id;
 
     public PDV(){}
 
@@ -22,7 +27,7 @@ public class PDV {
         this.bandeira = bandeira;
         this.cidade = cidade;
         this.cnpj = cnpj;
-        this.codigo_canal = codigo_canal;
+        this.codigoCanal = codigo_canal;
         this.enredeco = enredeco;
         this.nome = nome;
         this.telefone = telefone;
@@ -38,11 +43,11 @@ public class PDV {
     }
 
     public int getCodigo_canal() {
-        return codigo_canal;
+        return codigoCanal;
     }
 
     public void setCodigo_canal(int codigo_canal) {
-        this.codigo_canal = codigo_canal;
+        this.codigoCanal = codigo_canal;
     }
 
     public String getCidade() {
@@ -99,5 +104,28 @@ public class PDV {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Map<String,Object> toMap(){
+        Map<String,Object> map = new HashMap<>();
+        map.put("nome",nome);
+        map.put("codigoCanal",codigoCanal);
+        map.put("bandeira",bandeira);
+        map.put("cnpj",cnpj);
+        map.put("telefone",telefone);
+        map.put("endereco",enredeco);
+        map.put("bairro",bairro);
+        map.put("cidade",cidade);
+        map.put("estado",estado);
+        map.put("id",id);
+        return map;
     }
 }

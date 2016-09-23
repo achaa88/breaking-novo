@@ -4,10 +4,10 @@ package com.breaking.breaking.adapter;
  * Created by Ellen on 17/06/2016.
  */
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.Query;
+        import com.firebase.ui.database.FirebaseRecyclerAdapter;
+        import com.google.firebase.database.Query;
 
-import com.breaking.breaking.domain.User;
+        import com.breaking.breaking.domain.User;
 
 public class UserRecyclerAdapter extends FirebaseRecyclerAdapter<User, UserViewHolder> {
 

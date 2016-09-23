@@ -1,6 +1,8 @@
 package com.breaking.breaking.domain;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Vitor on 31/07/2016.
@@ -9,11 +11,11 @@ public class SKU {
 
     private int ean;
     private String nome;
-    private int categoria;
-    private String quantidade;
+    private String categoria;
+    private int quantidade;
     private int tamanho; //tamanho na gondula
     private double preco_medio;
-    private Date data_validade;
+    private String data_validade;
 
     public SKU(){}
 
@@ -33,19 +35,19 @@ public class SKU {
         this.nome = nome;
     }
 
-    public int getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(int categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
-    public String getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(String quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 
@@ -57,11 +59,11 @@ public class SKU {
         this.preco_medio = preco_medio;
     }
 
-    public Date getData_validade() {
+    public String getData_validade() {
         return data_validade;
     }
 
-    public void setData_validade(Date data_validade) {
+    public void setData_validade(String data_validade) {
         this.data_validade = data_validade;
     }
 
@@ -71,5 +73,18 @@ public class SKU {
 
     public void setTamanho(int tamanho) {
         this.tamanho = tamanho;
+    }
+
+    public Map<String,Object> toMap(){
+        Map<String,Object> map = new HashMap<>();
+        map.put("nome",nome);
+        map.put("ean",ean);
+        map.put("categoria",categoria);
+        map.put("quantidade",quantidade);
+        map.put("tamanho",tamanho);
+        map.put("precoMedio",preco_medio);
+        map.put("dataValidade",data_validade);
+
+        return map;
     }
 }

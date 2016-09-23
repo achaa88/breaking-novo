@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.breaking.breaking.R;
+import com.breaking.breaking.adapter.PDVRecyclerAdapter;
+import com.breaking.breaking.adapter.PDVViewHolder;
 import com.breaking.breaking.adapter.UserRecyclerAdapter;
 import com.breaking.breaking.adapter.UserViewHolder;
+import com.breaking.breaking.domain.PDV;
 import com.breaking.breaking.domain.User;
 import com.breaking.breaking.domain.util.LibraryClass;
 import com.google.firebase.database.DatabaseReference;
@@ -60,9 +63,9 @@ public class ListaPdvsDia extends Fragment {
         //Log.d("create view","passou pela lista pdvs");
         View view = inflater.inflate(R.layout.fragment_lista_pdvs_dia, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rvListaPdvs);
-        DatabaseReference firebase = LibraryClass.getFirebase().child("users");
-        //PDVRecyclerAdapter adapter = new PDVRecyclerAdapter(PDV.class, android.R.layout.two_line_list_item,PDVViewHolder.class,firebase );
-        UserRecyclerAdapter adapter = new UserRecyclerAdapter(User.class,android.R.layout.two_line_list_item, UserViewHolder.class,firebase);
+        DatabaseReference pdvref = LibraryClass.getFirebase().child("pdvs");
+        PDVRecyclerAdapter adapter = new PDVRecyclerAdapter(PDV.class, android.R.layout.two_line_list_item,PDVViewHolder.class,pdvref );
+        //UserRecyclerAdapter adapter = new UserRecyclerAdapter(User.class,android.R.layout.two_line_list_item, UserViewHolder.class,firebase);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
