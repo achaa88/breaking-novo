@@ -1,5 +1,6 @@
 package com.breaking.breaking.domain;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public class ExecucaoSKU {
     private boolean pegarestoque;
     private int estoque; //porcent
     private List<String> listaPerguntasLivres;
-    private Map<String,String> perguntasComRespostas;
+    private Map<String,String> perguntasComRespostas = new HashMap<>();
 
 
     public ExecucaoSKU(){   }

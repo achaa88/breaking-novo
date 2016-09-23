@@ -1,5 +1,6 @@
 package com.breaking.breaking.domain;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Map;
  */
 public class ExecucaoPDV {
 
-    private Map<String,ExecucaoSKU> execucaoSKUMap;
+    private Map<String,ExecucaoSKU> execucaoSKUMap = new HashMap<>();
     private PDV pdv;
     private User user;
 

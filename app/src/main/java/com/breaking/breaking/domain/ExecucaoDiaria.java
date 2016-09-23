@@ -1,18 +1,21 @@
 package com.breaking.breaking.domain;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by Vitor on 19/09/2016.
  */
 public class ExecucaoDiaria {
-    private Map<String,ExecucaoPDV> execucaoPDVMap;
+    private Map<String,ExecucaoPDV> execucaoPDVMap = new HashMap<>();
     private User user;
+    private String data;
 
     public ExecucaoDiaria(){}
 
-    public ExecucaoDiaria(User user){
+    public ExecucaoDiaria(User user,String data){
         this.user = user;
+        this.data = data;
     }
 
     public ExecucaoPDV getExecucaoPDV(String pdv){

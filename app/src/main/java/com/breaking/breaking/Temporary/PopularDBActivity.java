@@ -17,31 +17,31 @@ public class PopularDBActivity extends AppCompatActivity {
     public void onClickCadastrarPDV(View view){
         Intent intent  = new Intent(this, CadastrarPDVActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public void onClickCadastrarSKU(View view){
         Intent intent  = new Intent(this, CadastrarSKUActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public void onClickCadastrarExSKU(View view){
         Intent intent  = new Intent(this, CadastrarSKUActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public void onClickCadastrarExPDV(View view){
         Intent intent  = new Intent(this, CadastrarSKUActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public void onClickCadastrarExDiaria(View view){
         Intent intent  = new Intent(this, CadastrarSKUActivity.class);
         startActivity(intent);
-        finish();
+    }
+
+    public void onClickPopularBD(View view){
+        Intent intent  = new Intent(this, PopularBdTestesActivity.class);
+        startActivity(intent);
     }
 
 }

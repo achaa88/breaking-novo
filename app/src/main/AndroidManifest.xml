@@ -58,7 +58,8 @@
         <activity android:name=".Temporary.CadastrarSKUActivity" />
         <activity android:name=".Temporary.CadastrarExSKUActivity" />
         <activity android:name=".Temporary.CadastrarExPDVActivity" />
-        <activity android:name=".Temporary.CadastrarExDiariaActivity"></activity>
+        <activity android:name=".Temporary.CadastrarExDiariaActivity" />
+        <activity android:name=".Temporary.PopularBdTestesActivity"></activity>
     </application>
 
 </manifest>
