@@ -8,13 +8,12 @@ import java.util.Map;
  */
 public class ExecucaoDiaria {
     private Map<String,ExecucaoPDV> execucaoPDVMap = new HashMap<>();
-    private User user;
     private String data;
 
     public ExecucaoDiaria(){}
 
-    public ExecucaoDiaria(User user,String data){
-        this.user = user;
+    public ExecucaoDiaria(String data){
+        //this.user = user;
         this.data = data;
     }
 
@@ -35,13 +34,5 @@ public class ExecucaoDiaria {
 
     public void setExecucaoPDVMap(Map<String, ExecucaoPDV> execucaoPDVMap) {
         this.execucaoPDVMap = execucaoPDVMap;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

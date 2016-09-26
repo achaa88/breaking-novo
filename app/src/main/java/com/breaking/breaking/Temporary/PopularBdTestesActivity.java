@@ -1,7 +1,7 @@
 package com.breaking.breaking.Temporary;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.breaking.breaking.R;
@@ -13,11 +13,7 @@ import com.breaking.breaking.domain.SKU;
 import com.breaking.breaking.domain.User;
 import com.breaking.breaking.domain.util.LibraryClass;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -84,15 +80,15 @@ public class PopularBdTestesActivity extends AppCompatActivity {
         String execucao_sku = "execucaoSku";
         String execucao_pdv = "execucaoPdv";
 
-        ExecucaoDiaria execucaoDiaria = new ExecucaoDiaria(user,"data0");
+        ExecucaoDiaria execucaoDiaria = new ExecucaoDiaria("data0");
 
         for (int i=0;i<num_pdvs;i++){
             PDV pdv_atual = map_pdv.get("pdv"+i);
-            ExecucaoPDV execucaoPDV = new ExecucaoPDV(pdv_atual,user);
+            ExecucaoPDV execucaoPDV = new ExecucaoPDV();
             for(int i2=0;i2<num_skus;i2++){
-                ExecucaoSKU execucaoSKU = new ExecucaoSKU(pdv_atual,map_sku.get("sku"+i2));
+                ExecucaoSKU execucaoSKU = new ExecucaoSKU();
                 execucaoPDV.setExecucaoSKU(execucao_sku+i2,execucaoSKU);
-                refExsku.child("pdv"+i2).child("sku"+i2).setValue(execucaoSKU);
+                refExsku.child("pdv"+i2).child("sku"+i2).setValue(execucaoSKU.toMap());
             }
             execucaoDiaria.setExecucaoPDV(execucao_pdv+i,execucaoPDV);
             refExPdv.child("pdv"+i).setValue(execucaoPDV);

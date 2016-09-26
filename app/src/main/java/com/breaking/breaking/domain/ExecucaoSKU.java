@@ -9,9 +9,11 @@ import java.util.Map;
  */
 public class ExecucaoSKU {
 
-    private PDV pdv;
-    private User user;
-    private SKU sku;
+    //private PDV pdv;
+    //private User user;
+    //private SKU sku;
+    private String idPdv;
+    private String idUser;
     private int idExecucaoSKU;
     private boolean pegarPreco;
     private double preco;
@@ -25,16 +27,32 @@ public class ExecucaoSKU {
 
     public ExecucaoSKU(){   }
 
-    public ExecucaoSKU(PDV pdv,SKU sku){
-        this.pdv = pdv;
-        this.sku = sku;
+    public ExecucaoSKU(String idPdv,String idUser){
+        this.idPdv = idPdv;
+        this.idUser = idUser;
     }
+
+    public String getIdPdv() {
+        return idPdv;
+    }
+
+    public void setIdPdv(String idPdv) {
+        this.idPdv = idPdv;
+    }
+
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
+    }
+
     public String getPerguntaLivre(int posicao){
         return listaPerguntasLivres.get(posicao);
     }
-    public void setPerguntaLivre(String perguntaLivre){
-        this.listaPerguntasLivres.add(perguntaLivre);
-    }
+
+    public void setPerguntaLivre(String perguntaLivre){ this.listaPerguntasLivres.add(perguntaLivre); }
 
     public void removePerguntaLivre(int posicao){
         removeResposta(posicao);
@@ -45,30 +63,18 @@ public class ExecucaoSKU {
         return perguntasComRespostas.get(listaPerguntasLivres.get(posicao));
     }
 
-    public PDV getPdv() {
-        return pdv;
-    }
+    public Map<String,Object> toMap(){
+        Map<String,Object> map = new HashMap<>();
+        map.put("pegarPreco",pegarPreco);
+        map.put("preco",preco);
+        map.put("pegarPresenca",pegarpresenca);
+        map.put("presenca",presenca);
+        map.put("pegarEstoque",pegarestoque);
+        map.put("listaPerguntasLivres",listaPerguntasLivres);
+        map.put("perguntasComRespostas",perguntasComRespostas);
 
-    public void setPdv(PDV pdv) {
-        this.pdv = pdv;
+        return map;
     }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public SKU getSku() {
-        return sku;
-    }
-
-    public void setSku(SKU sku) {
-        this.sku = sku;
-    }
-
     public List<String> getListaPerguntasLivres() {
         return listaPerguntasLivres;
     }
