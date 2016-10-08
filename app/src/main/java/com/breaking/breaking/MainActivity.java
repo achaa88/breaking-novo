@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.breaking.breaking.Temporary.PopularDBActivity;
-import com.breaking.breaking.domain.User;
 import com.breaking.breaking.domain.util.LibraryClass;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -106,14 +105,14 @@ public class MainActivity extends AppCompatActivity {
     // MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        User user = new User();
+        //User user = new User();
 
-        if( user.isSocialNetworkLogged( this ) ){
+        /*if( user.isSocialNetworkLogged( this ) ){
             getMenuInflater().inflate(R.menu.menu_social_network_logged, menu);
         }
-        else{
+        else{*/
             getMenuInflater().inflate(R.menu.menu, menu);
-        }
+        //}
         return true;
     }
 

@@ -15,6 +15,8 @@ import com.breaking.breaking.domain.util.LibraryClass;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +37,9 @@ public class PopularBdTestesActivity extends AppCompatActivity {
         DatabaseReference refExDiaria = refPrincipal.child("execucaoDiaria");
         DatabaseReference refExPdv = refPrincipal.child("execucaoPdv");
         DatabaseReference refExsku = refPrincipal.child("execucaoSku");
-
+        refExDiaria.removeValue();
+        refExPdv.removeValue();
+        refExsku.removeValue();
 
         user.setId( FirebaseAuth.getInstance().getCurrentUser().getUid() );
 
@@ -50,6 +54,8 @@ public class PopularBdTestesActivity extends AppCompatActivity {
         Map<String,PDV> map_pdv = new HashMap<>();
         Map<String,SKU> map_sku = new HashMap<>();
 
+        //seta os pvs
+
         for (int i=0;i<num_pdvs;i++){
             PDV pdv = new PDV(nome_pdv+i,i,bandeira_pdv+i,i,i,endereco_pdv+i,bairro_pdv+i,cidade_pdv+i,estado_pdv+i);
             map_pdv.put("pdv"+i,pdv);
@@ -61,6 +67,8 @@ public class PopularBdTestesActivity extends AppCompatActivity {
         String nome_sku = "sku";
         String categoria_sku = "categoria";
         String data_val_sku = "data val";
+
+        //seta os skus
 
         for(int i=0;i<num_skus;i++){
             SKU sku = new SKU();
@@ -85,15 +93,20 @@ public class PopularBdTestesActivity extends AppCompatActivity {
         for (int i=0;i<num_pdvs;i++){
             PDV pdv_atual = map_pdv.get("pdv"+i);
             ExecucaoPDV execucaoPDV = new ExecucaoPDV();
+            execucaoPDV.setPdv(pdv_atual);
             for(int i2=0;i2<num_skus;i2++){
                 ExecucaoSKU execucaoSKU = new ExecucaoSKU();
                 execucaoPDV.setExecucaoSKU(execucao_sku+i2,execucaoSKU);
+
                 refExsku.child("pdv"+i2).child("sku"+i2).setValue(execucaoSKU.toMap());
             }
             execucaoDiaria.setExecucaoPDV(execucao_pdv+i,execucaoPDV);
             refExPdv.child("pdv"+i).setValue(execucaoPDV);
         }
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yy");
+        String dataFormatada = df.format(calendar.getTime());
 
-        refExDiaria.child(user.getId()).child("data0").setValue(execucaoDiaria);
+        refExDiaria.child(user.getId()).child(dataFormatada).setValue(execucaoDiaria.getExecucaoPDVMap());
     }
 }

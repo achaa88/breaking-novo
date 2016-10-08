@@ -9,26 +9,10 @@ import java.util.Map;
 public class ExecucaoPDV {
 
     private Map<String,ExecucaoSKU> execucaoSKUMap = new HashMap<>();
+    private PDV pdv;
 
     public ExecucaoPDV(){}
 
-/*
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public PDV getPdv() {
-        return pdv;
-    }
-
-    public void setPdv(PDV pdv) {
-        this.pdv = pdv;
-    }
-*/
     public Map<String, ExecucaoSKU> getExecucaoSKUMap() {
         return execucaoSKUMap;
     }
@@ -49,4 +33,11 @@ public class ExecucaoPDV {
         this.execucaoSKUMap.remove(produto);
     }
 
+    public PDV getPdv() {
+        return pdv;
+    }
+
+    public void setPdv(PDV pdv) {
+        this.pdv = pdv;
+    }
 }

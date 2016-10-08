@@ -1,6 +1,7 @@
 package com.breaking.breaking.adapter;
 
 import com.breaking.breaking.domain.ExecucaoPDV;
+import com.breaking.breaking.domain.PDV;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.Query;
 
@@ -20,7 +21,13 @@ public class ExPdvRecyclerAdapter extends FirebaseRecyclerAdapter<ExecucaoPDV,Ex
     }
 
     @Override
-    protected void populateViewHolder(ExPdvViewHolder viewHolder, ExecucaoPDV model, int position) {
-
+    protected void populateViewHolder(
+            ExPdvViewHolder viewHolder,
+            ExecucaoPDV model,
+            int position) {
+        PDV pdv = model.getPdv();
+        viewHolder.bandeira.setText(pdv.getBandeira());
+        viewHolder.nome.setText(pdv.getNome());
+        viewHolder.endereco.setText(pdv.getEnderecoCompleto());
     }
 }

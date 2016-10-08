@@ -1,16 +1,16 @@
 package com.breaking.breaking.adapter;
 
-import com.breaking.breaking.domain.SKU;
+import com.breaking.breaking.domain.ExecucaoSKU;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.Query;
 
 /**
  * Created by Vitor on 03/06/2016.
  */
-public class SKUSimpleRecyclerAdapter extends FirebaseRecyclerAdapter<SKU,SKUSimpleViewHolder> {
+public class SKUSimpleRecyclerAdapter extends FirebaseRecyclerAdapter<ExecucaoSKU,SKUSimpleViewHolder> {
 
     public SKUSimpleRecyclerAdapter(
-            Class<SKU> modelClass,
+            Class<ExecucaoSKU> modelClass,
             int modelLayout,
             Class<SKUSimpleViewHolder> viewHolderClass,
             Query ref) {
@@ -21,9 +21,9 @@ public class SKUSimpleRecyclerAdapter extends FirebaseRecyclerAdapter<SKU,SKUSim
     @Override
     protected void populateViewHolder(
             SKUSimpleViewHolder skuSimpleViewHolder,
-            SKU sku,
+            ExecucaoSKU sku,
             int i) {
-        skuSimpleViewHolder.text1.setText( sku.getNome() );
+        //skuSimpleViewHolder.text1.setText( sku.getNome() );
         //skuSimpleViewHolder.text2.setText(sku.getPrecoAtualString());
     }
 }

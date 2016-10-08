@@ -2,7 +2,6 @@ package com.breaking.breaking.domain;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by Vitor on 31/07/2016.
@@ -112,6 +111,10 @@ public class PDV {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getEnderecoCompleto(){
+        return(this.enredeco+" "+this.bairro+" "+this.cidade+" "+this.estado);
     }
 
     public Map<String,Object> toMap(){
