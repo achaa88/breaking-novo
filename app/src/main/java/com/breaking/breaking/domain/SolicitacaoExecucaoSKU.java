@@ -7,37 +7,30 @@ import java.util.Map;
 /**
  * Created by Vitor on 31/07/2016.
  */
-public class ExecucaoSKU {
-
-    //private PDV pdv;
-    //private User user;
-    //private SKU sku;
-    private String idPdv;
+public class SolicitacaoExecucaoSKU {
+    
+    private String idPDV;
     private String idUser;
-    private int idExecucaoSKU;
+    private int idSKU;
     private boolean pegarPreco;
-    private double preco;
     private boolean pegarpresenca;
-    private int presenca; //porcent
     private boolean pegarestoque;
-    private int estoque; //porcent
     private List<String> listaPerguntasLivres;
-    private Map<String,String> perguntasComRespostas = new HashMap<>();
 
 
-    public ExecucaoSKU(){   }
+    public SolicitacaoExecucaoSKU(){   }
 
-    public ExecucaoSKU(String idPdv,String idUser){
-        this.idPdv = idPdv;
+    public SolicitacaoExecucaoSKU(String idPdv, String idUser){
+        this.idPDV = idPdv;
         this.idUser = idUser;
     }
 
     public String getIdPdv() {
-        return idPdv;
+        return idPDV;
     }
 
     public void setIdPdv(String idPdv) {
-        this.idPdv = idPdv;
+        this.idPDV = idPdv;
     }
 
     public String getIdUser() {
@@ -55,24 +48,20 @@ public class ExecucaoSKU {
     public void setPerguntaLivre(String perguntaLivre){ this.listaPerguntasLivres.add(perguntaLivre); }
 
     public void removePerguntaLivre(int posicao){
-        removeResposta(posicao);
+        //removeResposta(posicao);
         this.listaPerguntasLivres.remove(posicao);
     }
 
-    public String getResposta(int posicao){
+    /*public String getResposta(int posicao){
         return perguntasComRespostas.get(listaPerguntasLivres.get(posicao));
-    }
+    }*/
 
     public Map<String,Object> toMap(){
         Map<String,Object> map = new HashMap<>();
         map.put("pegarPreco",pegarPreco);
-        map.put("preco",preco);
         map.put("pegarPresenca",pegarpresenca);
-        map.put("presenca",presenca);
         map.put("pegarEstoque",pegarestoque);
         map.put("listaPerguntasLivres",listaPerguntasLivres);
-        map.put("perguntasComRespostas",perguntasComRespostas);
-
         return map;
     }
     public List<String> getListaPerguntasLivres() {
@@ -82,7 +71,7 @@ public class ExecucaoSKU {
     public void setListaPerguntasLivres(List<String> listaPerguntasLivres) {
         this.listaPerguntasLivres = listaPerguntasLivres;
     }
-
+    /*
     public Map<String, String> getPerguntasComRespostas() {
         return perguntasComRespostas;
     }
@@ -98,7 +87,7 @@ public class ExecucaoSKU {
     public void removeResposta(int posPerg){
         this.perguntasComRespostas.remove(this.listaPerguntasLivres.get(posPerg));
     }
-
+    */
     public boolean isPegarpresenca() {
         return pegarpresenca;
     }
@@ -124,13 +113,13 @@ public class ExecucaoSKU {
     }
 
     public int getIdExecucaoSKU() {
-        return idExecucaoSKU;
+        return idSKU;
     }
 
     public void setIdExecucaoSKU(int idExecucaoSKU) {
-        this.idExecucaoSKU = idExecucaoSKU;
+        this.idSKU = idExecucaoSKU;
     }
-
+    /*
     public double getPreco() {
         return preco;
     }
@@ -154,4 +143,5 @@ public class ExecucaoSKU {
     public void setEstoque(int estoque) {
         this.estoque = estoque;
     }
+    */
 }

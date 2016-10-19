@@ -8,29 +8,35 @@ import java.util.Map;
  */
 public class ExecucaoPDV {
 
-    private Map<String,ExecucaoSKU> execucaoSKUMap = new HashMap<>();
+    private Map<String,SolicitacaoExecucaoSKU> solicitacaoExecucaoSKU = new HashMap<>();
+    private Map<String,ResultadoExecucaoSKU> resultadoExecucaoSKU = new HashMap<>();
     private PDV pdv;
+    private String idExPdv;
 
     public ExecucaoPDV(){}
 
-    public Map<String, ExecucaoSKU> getExecucaoSKUMap() {
-        return execucaoSKUMap;
+    public SolicitacaoExecucaoSKU getSolicitacaoExecucaoSKU(String produto){
+        return solicitacaoExecucaoSKU.get(produto);
     }
 
-    public void setExecucaoSKUMap(Map<String, ExecucaoSKU> execucaoSKUMap) {
-        this.execucaoSKUMap = execucaoSKUMap;
+    public void setSolicitacaoExecucaoSKU(String produto,SolicitacaoExecucaoSKU solicitacaoExecucaoSKU){
+        this.solicitacaoExecucaoSKU.put(produto,solicitacaoExecucaoSKU);
     }
 
-    public ExecucaoSKU getExecucaoSKU(String produto){
-        return execucaoSKUMap.get(produto);
+    public void removeSolicicataoExecucaoSKU(String produto){
+        this.solicitacaoExecucaoSKU.remove(produto);
     }
 
-    public void setExecucaoSKU(String produto,ExecucaoSKU execucaoSKU){
-        this.execucaoSKUMap.put(produto,execucaoSKU);
+    public ResultadoExecucaoSKU getResultadoExecucaoSKU(String produto){
+        return resultadoExecucaoSKU.get(produto);
     }
 
-    public void removeExecucaoSKU(String produto){
-        this.execucaoSKUMap.remove(produto);
+    public void setResultadoExecucaoSKU(String produto,ResultadoExecucaoSKU resultadoExecucaoSKU){
+        this.resultadoExecucaoSKU.put(produto,resultadoExecucaoSKU);
+    }
+
+    public void removeResultadoExecucaoSKU(String produto){
+        this.resultadoExecucaoSKU.remove(produto);
     }
 
     public PDV getPdv() {
@@ -39,5 +45,22 @@ public class ExecucaoPDV {
 
     public void setPdv(PDV pdv) {
         this.pdv = pdv;
+    }
+
+    public String getIdExPdv() {
+        return idExPdv;
+    }
+
+    public void setIdExPdv(String idExPdv) {
+        this.idExPdv = idExPdv;
+    }
+
+    public Map<String,Object> toMap(){
+        Map<String,Object> map = new HashMap<>();
+        map.put("pdv",pdv);
+        map.put("idExPdv",idExPdv);
+        map.put("solicitacaoExecucaoSKU",solicitacaoExecucaoSKU);
+        map.put("resultadoExecucaoSKU",resultadoExecucaoSKU);
+        return map;
     }
 }

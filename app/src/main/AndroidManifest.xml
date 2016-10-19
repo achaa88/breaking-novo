@@ -50,7 +50,7 @@
             android:label="@string/title_activity_selecao_pdv"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ExecucaoSKUActivity"
+            android:name=".ExecucaoPDVActivity"
             android:label="@string/title_activity_execucao_sku"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Temporary.PopularDBActivity" />
@@ -60,7 +60,8 @@
         <activity android:name=".Temporary.CadastrarExPDVActivity" />
         <activity android:name=".Temporary.CadastrarExDiariaActivity" />
         <activity android:name=".Temporary.PopularBdTestesActivity" />
-        <activity android:name=".SelecaoSKUActivity"></activity>
+        <activity android:name=".SelecaoSKUActivity" />
+        <activity android:name=".CheckInPDVActivity"></activity>
     </application>
 
 </manifest>

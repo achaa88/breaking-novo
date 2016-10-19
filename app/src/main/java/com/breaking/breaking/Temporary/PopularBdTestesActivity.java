@@ -1,13 +1,15 @@
 package com.breaking.breaking.Temporary;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.breaking.breaking.MainActivity;
 import com.breaking.breaking.R;
 import com.breaking.breaking.domain.ExecucaoDiaria;
 import com.breaking.breaking.domain.ExecucaoPDV;
-import com.breaking.breaking.domain.ExecucaoSKU;
+import com.breaking.breaking.domain.SolicitacaoExecucaoSKU;
 import com.breaking.breaking.domain.PDV;
 import com.breaking.breaking.domain.SKU;
 import com.breaking.breaking.domain.User;
@@ -30,6 +32,11 @@ public class PopularBdTestesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_popular_bd_testes);
 
     }
+    public void onClickVoltarMain(View view){
+        Intent intent = new Intent(PopularBdTestesActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
     public void onClickPopularBd(View view){
         DatabaseReference refPrincipal = LibraryClass.getFirebase();
         DatabaseReference refPdvs = refPrincipal.child("pdvs");
@@ -37,7 +44,7 @@ public class PopularBdTestesActivity extends AppCompatActivity {
         DatabaseReference refExDiaria = refPrincipal.child("execucaoDiaria");
         DatabaseReference refExPdv = refPrincipal.child("execucaoPdv");
         DatabaseReference refExsku = refPrincipal.child("execucaoSku");
-        refExDiaria.removeValue();
+        //refExDiaria.removeValue();
         refExPdv.removeValue();
         refExsku.removeValue();
 
@@ -57,7 +64,7 @@ public class PopularBdTestesActivity extends AppCompatActivity {
         //seta os pvs
 
         for (int i=0;i<num_pdvs;i++){
-            PDV pdv = new PDV(nome_pdv+i,i,bandeira_pdv+i,i,i,endereco_pdv+i,bairro_pdv+i,cidade_pdv+i,estado_pdv+i);
+            PDV pdv = new PDV(nome_pdv+i,i,bandeira_pdv+i,i,i,endereco_pdv+i,bairro_pdv+i,cidade_pdv+i,estado_pdv+i,"id"+i);
             map_pdv.put("pdv"+i,pdv);
             DatabaseReference ref_novo_pdv = refPdvs.child("pdv"+i);
             ref_novo_pdv.setValue(pdv.toMap());
@@ -95,8 +102,8 @@ public class PopularBdTestesActivity extends AppCompatActivity {
             ExecucaoPDV execucaoPDV = new ExecucaoPDV();
             execucaoPDV.setPdv(pdv_atual);
             for(int i2=0;i2<num_skus;i2++){
-                ExecucaoSKU execucaoSKU = new ExecucaoSKU();
-                execucaoPDV.setExecucaoSKU(execucao_sku+i2,execucaoSKU);
+                SolicitacaoExecucaoSKU execucaoSKU = new SolicitacaoExecucaoSKU();
+                execucaoPDV.setSolicitacaoExecucaoSKU(execucao_sku+i2,execucaoSKU);
 
                 refExsku.child("pdv"+i2).child("sku"+i2).setValue(execucaoSKU.toMap());
             }
@@ -104,9 +111,11 @@ public class PopularBdTestesActivity extends AppCompatActivity {
             refExPdv.child("pdv"+i).setValue(execucaoPDV);
         }
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yy");
+        SimpleDateFormat df = new SimpleDateFormat("yy/MM/dd");
         String dataFormatada = df.format(calendar.getTime());
 
         refExDiaria.child(user.getId()).child(dataFormatada).setValue(execucaoDiaria.getExecucaoPDVMap());
+        refExDiaria.child(user.getId()).child("16/10/14").setValue(execucaoDiaria.getExecucaoPDVMap());
+
     }
 }

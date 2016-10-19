@@ -38,7 +38,7 @@ public class CadastrarPDVActivity extends AppCompatActivity implements DatabaseR
         DatabaseReference novoPdvRef = pdvReference.push();
         Map<String,Object> map = new HashMap<>();
 
-        PDV pdv = new PDV(nome.getText().toString(),Integer.parseInt(codigo_canal.getText().toString()),bandeira.getText().toString(),Integer.parseInt(cnpj.getText().toString()),Integer.parseInt(telefone.getText().toString()),endereco.getText().toString(),bairro.getText().toString(),cidade.getText().toString(),estado.getText().toString());
+        PDV pdv = new PDV(nome.getText().toString(),Integer.parseInt(codigo_canal.getText().toString()),bandeira.getText().toString(),Integer.parseInt(cnpj.getText().toString()),Integer.parseInt(telefone.getText().toString()),endereco.getText().toString(),bairro.getText().toString(),cidade.getText().toString(),estado.getText().toString(),"id Invalido");
         //PDV pdv = new PDV("pdv",321,"extra",)
         map = pdv.toMap();
         String key = novoPdvRef.getKey();

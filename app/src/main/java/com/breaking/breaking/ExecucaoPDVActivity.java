@@ -11,13 +11,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.breaking.breaking.Fragments.CheckInOutFragment;
 import com.breaking.breaking.Fragments.LayoutFragment;
 import com.breaking.breaking.Fragments.PerguntasLivresFragment;
 import com.breaking.breaking.Fragments.PrecoFragment;
 import com.breaking.breaking.Fragments.RupturaFragment;
 
-public class ExecucaoSKUActivity extends AppCompatActivity {
+public class ExecucaoPDVActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -38,7 +37,6 @@ public class ExecucaoSKUActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_execucao_sku);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -91,14 +89,12 @@ public class ExecucaoSKUActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 default:
-                    return CheckInOutFragment.newInstance();
-                case 1:
                     return PrecoFragment.newInstance();
-                case 2:
+                case 1:
                     return LayoutFragment.newInstance();
-                case 3:
+                case 2:
                     return RupturaFragment.newInstance();
-                case 4:
+                case 3:
                     return PerguntasLivresFragment.newInstance();
 
             }
@@ -107,21 +103,19 @@ public class ExecucaoSKUActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 5 total pages.
-            return 5;
+            return 4;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Check-in/out";
-                case 1:
                     return "Preço";
-                case 2:
+                case 1:
                     return "Layout";
-                case 3:
+                case 2:
                     return "Ruptura";
-                case 4:
+                case 3:
                     return "Perguntas Livres";
             }
             return null;

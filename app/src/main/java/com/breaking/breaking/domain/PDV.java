@@ -21,7 +21,7 @@ public class PDV {
 
     public PDV(){}
 
-    public PDV(String nome, int codigo_canal, String bandeira, int cnpj, int telefone, String enredeco, String bairro, String cidade, String estado){
+    public PDV(String nome, int codigo_canal, String bandeira, int cnpj, int telefone, String enredeco, String bairro, String cidade, String estado,String id){
         this.bairro = bairro;
         this.bandeira = bandeira;
         this.cidade = cidade;
@@ -31,6 +31,7 @@ public class PDV {
         this.nome = nome;
         this.telefone = telefone;
         this.estado = estado;
+        this.id = id;
     }
 
     public String getEstado() {

@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class ListaPdvsDia extends Fragment {
+public class ListaPdvsDia extends Fragment{
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
     private TextView dataAtual;
@@ -44,6 +44,7 @@ public class ListaPdvsDia extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,17 +61,12 @@ public class ListaPdvsDia extends Fragment {
 
         //pegando data atual
         calendar = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yy");
+        SimpleDateFormat df = new SimpleDateFormat("yy/MM/dd");
         String dataFormatada = df.format(calendar.getTime());
+
 
         //lista dos pdvs
         recyclerView = (RecyclerView) view.findViewById(R.id.rvListaPdvs);
-        recyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO: fazer o onclick dos items da lista de pdvs mandando para a execucao do pdv correspondente
-            }
-        });
 
         //Botao voltar data
         Button voltarData = (Button) view.findViewById(R.id.btDataAnterior);
@@ -80,7 +76,6 @@ public class ListaPdvsDia extends Fragment {
 
             }
         });
-
         //Botao proxima data
         Button proximaData = (Button) view.findViewById(R.id.btDataProxima);
         proximaData.setOnClickListener(new View.OnClickListener() {
@@ -110,6 +105,8 @@ public class ListaPdvsDia extends Fragment {
     private void alteraRefListaPdvs(String data) {
         ExPdvRecyclerAdapter adapter = new ExPdvRecyclerAdapter(ExecucaoPDV.class,R.layout.layout_item_ex_pdv, ExPdvViewHolder.class,refPrincipal.child(data));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter.setActivity(getActivity());
+        //adapter.setOnClickListenerHack(this);
         recyclerView.setAdapter(adapter);
     }
 }
