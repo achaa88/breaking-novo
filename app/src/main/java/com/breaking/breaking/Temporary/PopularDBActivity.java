@@ -1,6 +1,7 @@
 package com.breaking.breaking.Temporary;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,8 +41,20 @@ public class PopularDBActivity extends AppCompatActivity {
     }
 
     public void onClickPopularBD(View view){
-        Intent intent  = new Intent(this, PopularBdTestesActivity.class);
-        startActivity(intent);
+        SQLiteDatabase db;
+        db = openOrCreateDatabase("breaking", MODE_PRIVATE, null);
+
+        //criando tabelas
+        //user
+        db.execSQL("CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, email VARCHAR, password VARCHAR, new_password VARCHAR, cpf INTEGER, matricula INTEGER )");
+        //sku
+        db.execSQL("CREATE TABLE IF NOT EXISTS sku(ean INTEGER PRIMARY KEY, nome VARCHAR, categoria VARCHAR, quantidade INTEGER, tamanho INTEGER, preco_medio NUMERIC(6,2), data_validade )");
+        //pdv
+        db.execSQL("CREATE TABLE IF NOT EXISTS pdv(id INTEGER PRIMARY KEY, codigo_canal INTEGER, nome VARCHAR(50), endereco VARCHAR, bandeira VARCHAR, cnpj INTEGER, telefone INTEGER )");
+        //ex sku
+        db.execSQL("CREATE TABLE IF NOT EXISTS execucao_sku(id_pdv INTEGER PRIMARY KEY, id_sku INTEGER PRIMARY KEY, id_user INTEGER, pegar_preco BOOLEAN, preco NUMERIC(6,2), pegar_presenca BOOLEAN, presenca BOOLEAN, pegar_estoque, estoque BOOLEAN, FOREIGN KEY (id_pdv) REFERENCES pdv(id), FOREIGN KEY (id_sku) REFERENCES sku(id) )");
+        //ex diaria
+        db.execSQL("CREATE TABLE IF NOT EXISTS execucaodiaria(data DATETIME)");
     }
 
 }
