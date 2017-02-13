@@ -11,23 +11,22 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.breaking.breaking.R;
-import com.breaking.breaking.adapter.ExPdvRecyclerAdapter;
-import com.breaking.breaking.adapter.ExPdvViewHolder;
-import com.breaking.breaking.domain.ExecucaoPDV;
-import com.breaking.breaking.domain.util.LibraryClass;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
+import com.breaking.breaking.adapter.PDVRecyclerAdapter;
+import com.breaking.breaking.domain.PDV;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ListaPdvsDia extends Fragment{
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
     private TextView dataAtual;
-    private RecyclerView recyclerView;
     private Calendar calendar;
-    private DatabaseReference refPrincipal;
+    private RecyclerView recyclerPdvs;
+    List<PDV> lista_pdvs = new ArrayList<PDV>();
+
 
     public ListaPdvsDia() {}
 
@@ -39,8 +38,8 @@ public class ListaPdvsDia extends Fragment{
      */
     public static ListaPdvsDia newInstance() {
         ListaPdvsDia fragment = new ListaPdvsDia();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
+        //Bundle args = new Bundle();
+        //fragment.setArguments(args);
         return fragment;
     }
 
@@ -50,6 +49,7 @@ public class ListaPdvsDia extends Fragment{
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
         }
+
     }
 
     @Override
@@ -59,14 +59,19 @@ public class ListaPdvsDia extends Fragment{
         //Log.d("create view","passou pela lista pdvs");
         View view = inflater.inflate(R.layout.fragment_lista_pdvs_dia, container, false);
 
+
         //pegando data atual
         calendar = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("yy/MM/dd");
         String dataFormatada = df.format(calendar.getTime());
 
-
         //lista dos pdvs
-        recyclerView = (RecyclerView) view.findViewById(R.id.rvListaPdvs);
+        recyclerPdvs = (RecyclerView) view.findViewById(R.id.rvListaPdvs);
+        preencheListaPdvs(5);
+        recyclerPdvs.setAdapter(new PDVRecyclerAdapter(lista_pdvs,getContext()));
+        RecyclerView.LayoutManager lm = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        recyclerPdvs.setLayoutManager(lm);
+
 
         //Botao voltar data
         Button voltarData = (Button) view.findViewById(R.id.btDataAnterior);
@@ -81,9 +86,7 @@ public class ListaPdvsDia extends Fragment{
         proximaData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO aumentar valor da data
-                String data = "pegar prox data";
-                alteraRefListaPdvs(data);
+
 
             }
         });
@@ -92,8 +95,7 @@ public class ListaPdvsDia extends Fragment{
         dataAtual = (TextView) view.findViewById(R.id.tvDataListaPdvs);
         dataAtual.setText(dataFormatada);
 
-        refPrincipal = LibraryClass.getFirebase().child("execucaoDiaria").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        alteraRefListaPdvs(dataFormatada);
+
 
 
         return view;
@@ -102,11 +104,21 @@ public class ListaPdvsDia extends Fragment{
     public void onDetach() {
         super.onDetach();
     }
-    private void alteraRefListaPdvs(String data) {
-        ExPdvRecyclerAdapter adapter = new ExPdvRecyclerAdapter(ExecucaoPDV.class,R.layout.layout_item_ex_pdv, ExPdvViewHolder.class,refPrincipal.child(data));
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter.setActivity(getActivity());
-        //adapter.setOnClickListenerHack(this);
-        recyclerView.setAdapter(adapter);
+    public void preencheListaPdvs(int quant){
+        String nome = "nome";
+        int cod_canal = 0;
+        String bandeira = "bandeira";
+        int cnpj = 0;
+        int telefone = 0;
+        String endereco = "endereco";
+        String bairro = "bairro";
+        String cidade = "cidade";
+        String estado = "estado";
+        String id = "id";
+        for(int i=0;i<quant;i++){
+            PDV pdv = new PDV(nome+i,cod_canal+i,bandeira+i,cnpj+i,telefone+i,endereco+i,bairro+i,cidade+i,estado+i,id+i);
+            lista_pdvs.add(pdv);
+        }
+
     }
 }

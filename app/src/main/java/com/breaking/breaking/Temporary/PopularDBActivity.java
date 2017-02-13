@@ -1,10 +1,9 @@
 package com.breaking.breaking.Temporary;
 
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.breaking.breaking.R;
@@ -15,30 +14,6 @@ public class PopularDBActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popular_db);
-    }
-    public void onClickCadastrarPDV(View view){
-        Intent intent  = new Intent(this, CadastrarPDVActivity.class);
-        startActivity(intent);
-    }
-
-    public void onClickCadastrarSKU(View view){
-        Intent intent  = new Intent(this, CadastrarSKUActivity.class);
-        startActivity(intent);
-    }
-
-    public void onClickCadastrarExSKU(View view){
-        Intent intent  = new Intent(this, CadastrarSKUActivity.class);
-        startActivity(intent);
-    }
-
-    public void onClickCadastrarExPDV(View view){
-        Intent intent  = new Intent(this, CadastrarSKUActivity.class);
-        startActivity(intent);
-    }
-
-    public void onClickCadastrarExDiaria(View view){
-        Intent intent  = new Intent(this, CadastrarSKUActivity.class);
-        startActivity(intent);
     }
 
     public void onClickPopularBD(View view) {
@@ -57,7 +32,9 @@ public class PopularDBActivity extends AppCompatActivity {
             //perguntas ex sku
             db.execSQL("CREATE TABLE IF NOT EXISTS perguntas_livres(id_execucao INTEGER PRIMARY KEY FOREIGN KEY REFERENCES execucao_sku(id), pergunta VARCHAR(50), resposta VARCHAR(50) )");
             //ex sku
-            db.execSQL("CREATE TABLE IF NOT EXISTS execucao_sku(id INTEGER, data DATETIME PRIMARY KEY, id_pdv INTEGER PRIMARY KEY, id_sku INTEGER PRIMARY KEY, id_user INTEGER, pegar_preco BOOLEAN, preco NUMERIC(6,2), pegar_presenca BOOLEAN, presenca BOOLEAN, pegar_estoque, estoque BOOLEAN, FOREIGN KEY (id_pdv) REFERENCES pdv(id), FOREIGN KEY (id_sku) REFERENCES sku(id) )");
+            db.execSQL("CREATE TABLE IF NOT EXISTS solicitacao_execucao_sku(id INTEGER, data DATETIME PRIMARY KEY, id_pdv INTEGER PRIMARY KEY, id_sku INTEGER PRIMARY KEY, id_user INTEGER, pegar_preco BOOLEAN, preco NUMERIC(6,2), pegar_presenca BOOLEAN, presenca BOOLEAN, pegar_estoque, estoque BOOLEAN, FOREIGN KEY (id_pdv) REFERENCES pdv(id), FOREIGN KEY (id_sku) REFERENCES sku(id) )");
+
+            db.execSQL("CREATE TABLE IF NOT EXISTS resultado_execucao_sku(id INTEGER, data DATETIME PRIMARY KEY, preco NUMERIC(6,2),presenca BOOLEAN, estoque BOOLEAN)");
 
         }catch (SQLiteException e){
             e.printStackTrace();

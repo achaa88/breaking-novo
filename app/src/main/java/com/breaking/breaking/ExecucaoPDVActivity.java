@@ -32,10 +32,14 @@ public class ExecucaoPDVActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private String idPDV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(savedInstanceState != null){
+            idPDV = (String) savedInstanceState.get("ID");
+        }
         setContentView(R.layout.activity_execucao_sku);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

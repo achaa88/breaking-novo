@@ -22,6 +22,7 @@
     <string name="remove_user">Remover conta</string>
     <string name="logout">Logout</string>
     <string name="title_activity_update">UpdateActivity</string>
+    <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_update_login">UpdateLoginActivity</string>
     <string name="title_activity_update_password">UpdatePasswordActivity</string>
     <string name="title_activity_link_accounts">Link contas</string>

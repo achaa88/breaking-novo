@@ -22,17 +22,21 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.LoginActionbar">
+        </activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:label="@string/title_activity_sign_up"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.LoginActionbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SignUpActivity"
-            android:label="@string/title_activity_sign_up"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".GuiaExecucaoActivity"
             android:label="@string/title_activity_guia_execucao"
@@ -54,12 +58,7 @@
             android:label="@string/title_activity_execucao_sku"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Temporary.PopularDBActivity" />
-        <activity android:name=".Temporary.CadastrarPDVActivity" />
-        <activity android:name=".Temporary.CadastrarSKUActivity" />
-        <activity android:name=".Temporary.CadastrarExSKUActivity" />
-        <activity android:name=".Temporary.CadastrarExPDVActivity" />
-        <activity android:name=".Temporary.CadastrarExDiariaActivity" />
-        <activity android:name=".Temporary.PopularBdTestesActivity" />
+
         <activity android:name=".SelecaoSKUActivity" />
         <activity android:name=".CheckInPDVActivity"></activity>
     </application>
